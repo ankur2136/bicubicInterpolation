@@ -1,0 +1,30 @@
+# Project: Project1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o $(RES)
+LINKOBJ  = main.o $(RES)
+LIBS =  -L"lib" -L"C:/opencv/build/include" -L"C:/Dev-Cpp/lib" C:/opencv/build/x86/vc10/lib/opencv_core231.lib C:/opencv/build/x86/vc10/lib/opencv_core231d.lib C:/opencv/build/x86/vc10/lib/opencv_highgui231.lib C:/opencv/build/x86/vc10/lib/opencv_highgui231d.lib C:/opencv/build/x86/vc10/lib/opencv_imgproc231.lib C:/opencv/build/x86/vc10/lib/opencv_imgproc231d.lib C:/opencv/build/x86/vc10/lib/opencv_ml231.lib C:/opencv/build/x86/vc10/lib/opencv_ml231d.lib -L "C:/Dev-Cpp/lib" -L "C:/Dev-Cpp/include"  
+INCS =  -I"include"  -I"C:/Dev-Cpp/mingw32"  -I"C:/opencv/include"  -I"C:/opencv/build/x86/vc10/lib"  -I"C:/Dev-Cpp/bin" 
+CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include"  -I"C:/opencv/include"  -I"C:/opencv/build/include"  -I"C:/Dev-Cpp/mingw32"  -I"C:/opencv/include"  -I"C:/opencv/build/x86/vc10/lib"  -I"C:/Dev-Cpp/bin" 
+BIN  = bicubicInterpolation.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before bicubicInterpolation.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "bicubicInterpolation.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
